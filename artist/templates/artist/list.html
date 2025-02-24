@@ -1,0 +1,19 @@
+{% extends 'artist/base.html' %}
+{% load static %} pour cha
+
+{% block content %}
+    <h2>Liste des artistes</h2>
+    <a href="{% url 'artist_create' %}" class="btn">Créer un artiste</a>
+    <ul class="artist-list">
+        {% for artist in artists %}
+            <li>
+                <span>{{ artist.name }}</span>
+                <div>
+                    <a href="{% url 'artist_detail' artist.pk %}">Voir</a>
+                    <a href="{% url 'artist_update' artist.pk %}">Modifier</a>
+                    <a href="{% url 'artist_delete' artist.pk %}">Supprimer</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
